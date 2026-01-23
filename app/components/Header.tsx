@@ -32,7 +32,7 @@ export default function Header() {
                         <div className="flex items-center space-x-2">
                             <div className="relative w-8 h-8 sm:w-10 sm:h-10">
                                 <Image
-                                    src="/images/Logo Kopi Roca.png"
+                                    src="/images/Logo Roca.jpg"
                                     alt="Kopi Roca Icon"
                                     fill
                                     className="object-contain"

@@ -15,6 +15,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Kopi Roca - Your Daily Escape",
   description: "Nikmati kopi premium, es teh segar, dan minuman non-coffee pilihan terbaik di Kopi Roca. Setiap tegukan adalah perjalanan rasa yang sempurna.",
+  icons: {
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({
