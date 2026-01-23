@@ -1,20 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
 
-@import "tailwindcss";
-
-@theme {
-  --color-kopi-primary: #6B4423;
-  --color-kopi-secondary: #8B5E3C;
-  --color-kopi-accent: #D4A574;
-  --color-kopi-cream: #F5E6D3;
-  --color-kopi-dark: #3E2723;
-  --color-kopi-highlight: #FFB74D;
-
-  --font-display: 'Playfair Display', serif;
-
-  --shadow-premium: 0 10px 40px rgb(107 68 35 / 0.15);
-  --shadow-premium-lg: 0 20px 60px rgb(107 68 35 / 0.25);
-}
 
 * {
   scroll-behavior: smooth;

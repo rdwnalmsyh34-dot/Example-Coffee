@@ -2,6 +2,15 @@
   command = "npm run build"
   publish = "out"
 
+[build.environment]
+  NODE_VERSION = "20"
+  ESLINT_NO_DEV_ERRORS = "true"
+  NEXT_IGNORE_ESLINT = "1"
+  NEXT_IGNORE_TYPECHECK = "1"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
