@@ -1,28 +1,52 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: [
-        './app/**/*.{js,ts,jsx,tsx,mdx}',
-        './pages/**/*.{js,ts,jsx,tsx,mdx}',
-        './components/**/*.{js,ts,jsx,tsx,mdx}',
-    ],
-    theme: {
-        extend: {
-            colors: {
-                'kopi-primary': '#6B4423',
-                'kopi-secondary': '#8B5E3C',
-                'kopi-accent': '#D4A574',
-                'kopi-cream': '#F5E6D3',
-                'kopi-dark': '#3E2723',
-                'kopi-highlight': '#FFB74D',
-            },
-            fontFamily: {
-                display: ['Playfair Display', 'serif'],
-            },
-            boxShadow: {
-                'premium': '0 10px 40px rgb(107 68 35 / 0.15)',
-                'premium-lg': '0 20px 60px rgb(107 68 35 / 0.25)',
-            },
+  content: [
+    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    './pages/**/*.{js,ts,jsx,tsx,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    // Tambahkan semua file yang pakai Tailwind
+    './src/**/*.{js,ts,jsx,tsx,mdx}',
+  ],
+  theme: {
+    extend: {
+      colors: {
+        'kopi-primary': '#8B4513',
+        'kopi-secondary': '#D2691E',
+        'kopi-accent': '#FFD700',
+        'kopi-cream': '#FFF8DC',
+        'kopi-dark': '#5D4037',
+        'kopi-highlight': '#FFA500',
+      },
+      animation: {
+        'float': 'float 6s ease-in-out infinite',
+        'fadeInUp': 'fadeInUp 0.5s ease-out',
+        'slideInRight': 'slideInRight 0.5s ease-out',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-20px)' },
         },
+        fadeInUp: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        slideInRight: {
+          '0%': { opacity: '0', transform: 'translateX(50px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+      },
+      boxShadow: {
+        'premium': '0 10px 40px rgba(139, 69, 19, 0.15)',
+        'premium-lg': '0 20px 60px rgba(139, 69, 19, 0.25)',
+      },
+      backgroundImage: {
+        'linear-to-r': 'linear-gradient(to right, var(--tw-gradient-stops))',
+        'linear-to-br': 'linear-gradient(to bottom right, var(--tw-gradient-stops))',
+        'linear-to-b': 'linear-gradient(to bottom, var(--tw-gradient-stops))',
+        'linear-to-t': 'linear-gradient(to top, var(--tw-gradient-stops))',
+      },
     },
-    plugins: [],
+  },
+  plugins: [],
 }
