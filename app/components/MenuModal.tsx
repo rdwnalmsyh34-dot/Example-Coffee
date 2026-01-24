@@ -44,21 +44,21 @@ export default function MenuModal({ item, onClose }: MenuModalProps) {
 
     return (
         <div
-            className="fixed inset-0 z-100 flex items-center justify-center p-4 animate-fadeIn"
+            className="fixed inset-0 z-100 flex items-start sm:items-center justify-center p-4 sm:p-6 animate-fadeIn overflow-y-auto"
             onClick={onClose}
         >
             {/* Backdrop */}
-            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+            <div className="fixed inset-0 bg-black/60 backdrop-blur-sm"></div>
 
-            {/* Modal */}
+            {/* Modal Container */}
             <div
-                className="relative bg-white rounded-3xl shadow-premium-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto animate-slideUp"
+                className="relative bg-white rounded-3xl shadow-premium-lg max-w-lg w-full my-12 sm:my-8 overflow-hidden animate-slideUp"
                 onClick={(e) => e.stopPropagation()}
             >
-                {/* Close Button */}
+                {/* Close Button - Moved inside the container for better mobile positioning */}
                 <button
                     onClick={onClose}
-                    className="absolute top-4 right-4 z-10 bg-white/90 hover:bg-white p-2 rounded-full shadow-lg transition-all hover:scale-110"
+                    className="absolute top-4 right-4 z-20 bg-white/90 hover:bg-white p-2 rounded-full shadow-lg transition-all hover:scale-110"
                     aria-label="Close modal"
                 >
                     <X className="h-6 w-6 text-kopi-primary" />

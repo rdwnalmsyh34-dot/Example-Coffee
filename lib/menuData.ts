@@ -96,6 +96,18 @@ export const menuItems: MenuItem[] = [
         benefits: 'Kombinasi unik, rendah kalori',
         image: '/images/Roca Peach Americano.png'
     },
+    {
+        id: 'bottle-coffee',
+        name: 'Bottle Coffee',
+        category: 'coffee',
+        variants: [
+            { size: 'Kopi Susu 1 Liter', price: 65000 },
+            { size: 'Kopi Susu Aren', price: 70000 }
+        ],
+        description: 'Kopi botol kemasan 1 Liter untuk stok di rumah, praktis dan tetap nikmat. Satu ukuran (1L) dengan pilihan rasa favorit.',
+        benefits: 'Lebih hemat, stok melimpah, rasa tetap konsisten',
+        image: '/images/Bottle Coffee.svg'
+    },
 
     // Non-Coffee Series
     {
