@@ -3,7 +3,8 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Menu as MenuIcon, X, Phone, MapPin } from 'lucide-react'
+import { Menu, X, Phone, ShoppingBag, Store, MapPin, Instagram, Facebook } from 'lucide-react'
+import { CONTACT_INFO } from '@/lib/constants'
 
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -27,30 +28,25 @@ export default function Header() {
         <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-lg">
             <div className="container mx-auto px-3 sm:px-4 py-2 sm:py-3">
                 <div className="flex justify-between items-center">
-                    {/* Logo - Integrated Graphic Icon and Brand Name */}
+                    {/* Logo - SVG-based logo with Brand Text */}
                     <Link href="/" className="flex flex-col items-center sm:items-start group">
-                        <div className="flex items-center space-x-2">
-                            <div className="relative w-8 h-8 sm:w-10 sm:h-10">
+                        <div className="flex items-center space-x-3">
+                            <div className="relative w-10 h-10 sm:w-12 sm:h-12">
                                 <Image
-                                    src="/images/Logo Roca.jpg"
-                                    alt="Kopi Roca Icon"
+                                    src="/images/Logo Baru.svg"
+                                    alt="Example Coffe Icon"
                                     fill
                                     className="object-contain"
                                     priority
+                                    unoptimized
                                 />
                             </div>
-                            <div className="relative w-[100px] h-[25px] sm:w-[130px] sm:h-[35px]">
-                                <Image
-                                    src="/images/Teks Logo.png"
-                                    alt="Kopi Roca Text"
-                                    fill
-                                    className="object-contain"
-                                    priority
-                                />
-                            </div>
+                            <span className="text-xl sm:text-2xl font-bold font-display text-kopi-primary tracking-tight leading-none">
+                                Example <span className="text-kopi-accent">Coffe</span>
+                            </span>
                         </div>
-                        <p className="text-[8px] sm:text-[10px] text-kopi-primary/90 font-display italic tracking-[0.15em] leading-none mt-1 uppercase">
-                            every moment feels lighter
+                        <p className="text-[10px] sm:text-[11px] text-kopi-accent font-display italic tracking-[0.12em] leading-none mt-1.5 uppercase">
+                            coffee makes everything happy
                         </p>
                     </Link>
 
@@ -67,7 +63,7 @@ export default function Header() {
                             </button>
                         ))}
                         <button
-                            onClick={() => window.open('https://wa.me/62895341004935', '_blank')}
+                            onClick={() => window.open(CONTACT_INFO.whatsapp, '_blank')}
                             className="bg-linear-to-r from-kopi-primary to-kopi-secondary text-white px-5 py-2 rounded-full font-semibold hover:shadow-premium transition-all duration-300 hover:scale-105 text-sm"
                         >
                             Hubungi Kami
@@ -102,7 +98,8 @@ export default function Header() {
                                 </button>
                             ))}
                             <button
-                                onClick={() => window.open('https://wa.me/62895341004935', '_blank')}
+                                aria-label="Contact on WhatsApp"
+                                onClick={() => window.open(CONTACT_INFO.whatsapp, '_blank')}
                                 className="bg-linear-to-r from-kopi-primary to-kopi-secondary text-white px-6 py-2.5 rounded-lg font-semibold text-center hover:shadow-lg transition-all mt-2"
                             >
                                 Hubungi Kami
@@ -111,7 +108,7 @@ export default function Header() {
                         <div className="mt-4 pt-4 border-t space-y-2">
                             <div className="flex items-center space-x-2 text-xs text-gray-600">
                                 <Phone className="h-3.5 w-3.5 text-kopi-accent shrink-0" />
-                                <span>0895-3410-04935</span>
+                                <span>{CONTACT_INFO.phoneFormatted}</span>
                             </div>
                             <div className="flex items-start space-x-2 text-xs text-gray-600">
                                 <MapPin className="h-3.5 w-3.5 text-kopi-accent shrink-0 mt-0.5" />
@@ -123,10 +120,13 @@ export default function Header() {
 
                 {/* Contact Info - Desktop Only */}
                 <div className="hidden lg:flex justify-end items-center space-x-6 mt-3 text-sm">
-                    <div className="flex items-center space-x-2 text-gray-600 hover:text-kopi-primary transition-colors">
+                    <button
+                        className="flex items-center space-x-2 text-kopi-secondary hover:text-kopi-primary transition-colors text-sm font-medium"
+                        onClick={() => window.open(CONTACT_INFO.whatsapp, '_blank')}
+                    >
                         <Phone className="h-4 w-4" />
-                        <span>0895-3410-04935</span>
-                    </div>
+                        <span>{CONTACT_INFO.phoneFormatted}</span>
+                    </button>
                     <div className="flex items-center space-x-2 text-gray-600 hover:text-kopi-primary transition-colors">
                         <MapPin className="h-4 w-4" />
                         <span>Cicalengka, Bandung</span>

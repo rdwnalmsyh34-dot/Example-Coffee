@@ -1,6 +1,8 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
+import { CONTACT_INFO } from '@/lib/constants'
 import { Sparkles, Clock } from 'lucide-react'
 
 export default function Hero() {
@@ -11,12 +13,12 @@ export default function Hero() {
         }
     }
 
-    const openWhatsApp = () => {
-        window.open('https://wa.me/62895341004935', '_blank')
+    const handleWhatsAppClick = () => {
+        window.open(CONTACT_INFO.whatsapp, '_blank')
     }
 
     return (
-        <section id="hero" className="relative bg-linear-to-br from-kopi-primary via-kopi-secondary to-kopi-dark text-white overflow-hidden min-h-[90vh] flex items-center">
+        <section id="hero" className="relative bg-linear-to-br from-[#2D2D2D] via-[#1A1A1A] to-[#000000] text-white overflow-hidden min-h-[90vh] flex items-center">
             <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-5"></div>
             <div className="absolute top-0 right-0 w-96 h-96 bg-kopi-accent/10 rounded-full blur-3xl animate-float"></div>
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-kopi-highlight/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }}></div>
@@ -34,7 +36,7 @@ export default function Hero() {
 
                         {/* Headline */}
                         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold font-display mb-4 lg:mb-6 leading-tight">
-                            Kopi Roca
+                            Example <span className="text-kopi-highlight">Coffe</span>
                             <br />
                             <span className="text-kopi-cream">Your Daily Escape</span>
                         </h1>
@@ -57,7 +59,7 @@ export default function Hero() {
                                 Lihat Menu
                             </button>
                             <button
-                                onClick={openWhatsApp}
+                                onClick={handleWhatsAppClick}
                                 className="btn-secondary text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 w-full sm:w-auto"
                             >
                                 Pesan Sekarang
@@ -69,11 +71,11 @@ export default function Hero() {
                     <div className="relative animate-slideInRight">
                         <div className="relative rounded-3xl overflow-hidden shadow-premium-lg">
                             <Image
-                                src="/images/toko.png"
-                                alt="Kopi Roca Shop"
+                                src="/images/toko.svg"
+                                alt="Example Coffe Shop"
                                 width={600}
                                 height={400}
-                                className="w-full h-auto"
+                                className="w-full h-auto object-contain"
                                 priority
                             />
                         </div>

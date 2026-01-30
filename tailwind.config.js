@@ -10,12 +10,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'kopi-primary': '#8B4513',
-        'kopi-secondary': '#D2691E',
-        'kopi-accent': '#FFD700',
-        'kopi-cream': '#FFF8DC',
-        'kopi-dark': '#5D4037',
-        'kopi-highlight': '#FFA500',
+        'kopi-primary': '#1A1A1A', // Dark Grey / Black
+        'kopi-secondary': '#4A4A4A', // Medium Grey
+        'kopi-accent': '#808080', // Grey
+        'kopi-cream': '#F5F5F5', // Off-white / Light Grey
+        'kopi-dark': '#000000', // Black
+        'kopi-highlight': '#D3D3D3', // Light Grey
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',
@@ -37,8 +37,8 @@ module.exports = {
         },
       },
       boxShadow: {
-        'premium': '0 10px 40px rgba(139, 69, 19, 0.15)',
-        'premium-lg': '0 20px 60px rgba(139, 69, 19, 0.25)',
+        'premium': '0 10px 40px rgba(0, 0, 0, 0.1)',
+        'premium-lg': '0 20px 60px rgba(0, 0, 0, 0.2)',
       },
       backgroundImage: {
         'linear-to-r': 'linear-gradient(to right, var(--tw-gradient-stops))',

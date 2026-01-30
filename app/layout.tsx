@@ -13,13 +13,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kopi Roca - Your Daily Escape",
-  description: "Nikmati kopi premium, es teh segar, dan minuman non-coffee pilihan terbaik di Kopi Roca. Setiap tegukan adalah perjalanan rasa yang sempurna.",
+  title: "Example Coffe - Your Daily Escape",
+  description: "Nikmati kopi premium, es teh segar, dan minuman non-coffee pilihan terbaik di Example Coffe. Setiap tegukan adalah perjalanan rasa yang sempurna.",
   icons: {
     icon: "/icon.png",
     apple: "/apple-icon.png",
   },
 };
+
+import { AuthProvider } from "@/context/AuthContext";
 
 export default function RootLayout({
   children,
@@ -31,7 +33,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

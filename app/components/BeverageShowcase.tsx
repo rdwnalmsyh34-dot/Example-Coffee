@@ -8,42 +8,42 @@ export default function BeverageShowcase() {
             title: 'Coffee Series',
             category: 'coffee',
             description: 'Kopi pilihan premium dengan cita rasa yang khas dan aroma yang menggoda',
-            image: '/images/Kategori Coffee.jpg',
+            image: '/images/kopi-susu.svg',
             icon: Coffee,
-            gradient: 'from-kopi-primary to-kopi-secondary',
+            gradient: 'from-[#333333] to-[#1A1A1A]',
             items: ['Es Kopi Susu', 'Kopi Gula Aren', 'Kopi Butterscotch', 'Kopi Hazelnut']
         },
         {
             title: 'Tea Series',
             category: 'tea',
             description: 'Es teh dengan kesegaran alami dan rasa yang menyegarkan sepanjang hari',
-            image: '/images/Kategori Tea.png',
+            image: '/images/Lemon Tea.svg',
             icon: Droplets,
-            gradient: 'from-green-600 to-teal-500',
+            gradient: 'from-[#4D4D4D] to-[#333333]',
             items: ['Tea Ice', 'Lemontea', 'Thaitea', 'Greentea']
         },
         {
             title: 'Non-Coffee',
             category: 'non-coffee',
             description: 'Minuman spesial tanpa kafein dengan variasi rasa yang menarik',
-            image: '/images/Kategori Non Coffee.png',
+            image: '/images/Coklat.svg',
             icon: Sparkles,
-            gradient: 'from-orange-500 to-pink-500',
+            gradient: 'from-[#666666] to-[#4D4D4D]',
             items: ['Oreo', 'Coklat', 'Taro Cheese', 'Matcha']
         },
         {
             title: 'Fruity Series',
             category: 'fruity',
             description: 'Kesegaran buah asli dikombinasikan dengan Yakult yang menyehatkan',
-            image: '/images/Kategori Fruity.png',
+            image: '/images/Mango Yakult.svg',
             icon: Cherry,
-            gradient: 'from-red-500 to-yellow-500',
+            gradient: 'from-[#808080] to-[#666666]',
             items: ['Mango Yakult', 'Leci Yakult', 'Orange Mojito']
         }
     ]
 
     return (
-        <section id="kategori" className="py-20 bg-linear-to-b from-white via-kopi-cream/30 to-white">
+        <section id="kategori" className="py-20 bg-linear-to-b from-white via-[#E5E5E5] to-white">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-16 animate-fadeInUp">
                     <h2 className="text-5xl md:text-6xl font-bold font-display text-kopi-primary mb-6">
@@ -55,7 +55,7 @@ export default function BeverageShowcase() {
                     </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
                     {beverages.map((beverage, index) => {
                         const Icon = beverage.icon
                         return (
@@ -66,12 +66,13 @@ export default function BeverageShowcase() {
                                 style={{ animationDelay: `${index * 0.2}s` }}
                             >
                                 {/* Image Container */}
-                                <div className="relative h-80 overflow-hidden bg-linear-to-br from-gray-50 to-gray-100">
+                                <div className="relative h-64 sm:h-80 overflow-hidden bg-linear-to-br from-gray-50 to-gray-100">
                                     <Image
-                                        src={beverage.image}
+                                        src={beverage.image || '/images/toko.svg'}
                                         alt={beverage.title}
                                         fill
                                         className="object-contain group-hover:scale-110 transition-transform duration-500 p-4"
+                                        unoptimized={true}
                                     />
                                     <div className={`absolute inset-0 bg-linear-to-t ${beverage.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-300`}></div>
 

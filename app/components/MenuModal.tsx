@@ -3,11 +3,58 @@
 import { X } from 'lucide-react'
 import Image from 'next/image'
 import { MenuItem } from '@/lib/menuData'
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
+import { CONTACT_INFO } from '@/lib/constants'
 
 interface MenuModalProps {
     item: MenuItem | null
     onClose: () => void
+}
+
+function ModalImage({ item }: { item: MenuItem }) {
+    const [imgSrc, setImgSrc] = useState(item.image || '/images/toko.svg')
+    const [isFallback, setIsFallback] = useState(false)
+
+    // Reset image when item changes
+    useEffect(() => {
+        let imagePath = item.image || '/images/toko.svg'
+
+        // Force SVG extension
+        if (imagePath.match(/\.(png|jpg|jpeg)$/i)) {
+            imagePath = imagePath.replace(/\.(png|jpg|jpeg)$/i, '.svg')
+        }
+
+        // Specific fix for Kopi Susu
+        if (imagePath.toLowerCase().includes('kopi susu.svg')) {
+            imagePath = '/images/kopi-susu.svg'
+        }
+
+        // Strict Overrides for Rebranding requirements
+        if (item.name === 'Bottle Coffee') {
+            imagePath = '/images/Bottle Coffeee.svg'
+        } else if (item.name === 'Es Kopi Hitam Americano') {
+            imagePath = '/images/Kopi Hitam.svg'
+        } else if (item.name === 'Matcha Cheese') {
+            imagePath = '/images/Matcha Cheese.svg'
+        }
+
+        setImgSrc(imagePath)
+        setIsFallback(false)
+    }, [item.id, item.image])
+
+    return (
+        <Image
+            src={imgSrc}
+            alt={item.name}
+            fill
+            className="object-contain p-4"
+            unoptimized={!isFallback}
+            onError={() => {
+                setImgSrc('/images/toko.svg')
+                setIsFallback(true)
+            }}
+        />
+    )
 }
 
 export default function MenuModal({ item, onClose }: MenuModalProps) {
@@ -44,7 +91,7 @@ export default function MenuModal({ item, onClose }: MenuModalProps) {
 
     return (
         <div
-            className="fixed inset-0 z-100 flex items-start sm:items-center justify-center p-4 sm:p-6 animate-fadeIn overflow-y-auto"
+            className="fixed inset-0 z-[100] flex items-start sm:items-center justify-center p-4 sm:p-6 animate-fadeIn overflow-y-auto"
             onClick={onClose}
         >
             {/* Backdrop */}
@@ -52,7 +99,7 @@ export default function MenuModal({ item, onClose }: MenuModalProps) {
 
             {/* Modal Container */}
             <div
-                className="relative bg-white rounded-3xl shadow-premium-lg max-w-lg w-full my-12 sm:my-8 overflow-hidden animate-slideUp"
+                className="relative bg-white rounded-t-[2.5rem] sm:rounded-3xl shadow-premium-lg max-w-lg w-full mt-auto sm:my-8 overflow-hidden animate-slideUp max-h-[90vh] sm:max-h-none flex flex-col"
                 onClick={(e) => e.stopPropagation()}
             >
                 {/* Close Button - Moved inside the container for better mobile positioning */}
@@ -64,18 +111,13 @@ export default function MenuModal({ item, onClose }: MenuModalProps) {
                     <X className="h-6 w-6 text-kopi-primary" />
                 </button>
 
-                {/* Image */}
-                <div className="relative w-full h-80 sm:h-96 bg-linear-to-br from-kopi-cream/30 to-kopi-accent/20 rounded-t-3xl">
-                    <Image
-                        src={item.image}
-                        alt={item.name}
-                        fill
-                        className="object-contain p-4"
-                    />
+                {/* Image Section - Fixed height on mobile, flexible on desktop */}
+                <div className="relative w-full h-72 sm:h-96 bg-linear-to-br from-[#E5E5E5] to-[#CCCCCC] shrink-0">
+                    <ModalImage item={item} />
                 </div>
 
-                {/* Content */}
-                <div className="p-6 sm:p-8">
+                {/* Content - Scrollable on small screens if needed */}
+                <div className="p-6 sm:p-8 overflow-y-auto">
                     {/* Title & Price */}
                     <div className="flex items-start justify-between gap-4 mb-4">
                         <h2 className="text-2xl sm:text-3xl font-bold font-display text-kopi-primary">
@@ -110,7 +152,7 @@ export default function MenuModal({ item, onClose }: MenuModalProps) {
                                 {item.variants.map((variant, index) => (
                                     <div
                                         key={index}
-                                        className="bg-linear-to-br from-kopi-cream/50 to-kopi-accent/20 border-2 border-kopi-accent/30 rounded-xl p-4 text-center hover:border-kopi-accent transition-colors"
+                                        className="bg-linear-to-br from-[#E5E5E5] to-[#CCCCCC] border-2 border-[#CCCCCC] rounded-xl p-4 text-center hover:border-kopi-accent transition-colors"
                                     >
                                         <div className="text-kopi-primary font-bold text-lg mb-1">
                                             {variant.size}
@@ -148,13 +190,13 @@ export default function MenuModal({ item, onClose }: MenuModalProps) {
                     {/* CTA Buttons */}
                     <div className="flex flex-col sm:flex-row gap-3">
                         <button
-                            onClick={() => window.open('https://wa.me/62895341004935', '_blank')}
+                            onClick={() => window.open(CONTACT_INFO.whatsapp, '_blank')}
                             className="flex-1 btn-primary text-lg py-4 flex items-center justify-center gap-2"
                         >
                             <span>WhatsApp</span>
                         </button>
                         <button
-                            onClick={() => window.open('https://shopee.co.id/universal-link/now-food/shop/22422947?deep_and_deferred=1&shareChannel=copy_link', '_blank')}
+                            onClick={() => window.open(CONTACT_INFO.shopeeFood, '_blank')}
                             className="flex-1 bg-[#EE4D2D] text-white font-bold rounded-2xl text-lg py-4 hover:bg-[#ff5d3d] transition-all hover:shadow-lg flex items-center justify-center gap-2"
                         >
                             <span>ShopeeFood</span>

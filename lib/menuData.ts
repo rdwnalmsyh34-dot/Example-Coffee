@@ -8,6 +8,7 @@ export interface MenuItem {
     description: string
     benefits: string
     image: string
+    isActive: boolean
 }
 
 export const menuItems: MenuItem[] = [
@@ -19,7 +20,8 @@ export const menuItems: MenuItem[] = [
         price: 10000,
         description: 'Perpaduan sempurna antara kopi pilihan premium dengan susu segar yang creamy',
         benefits: 'Meningkatkan energi dan konsentrasi, kaya antioksidan',
-        image: '/images/Kopi Susu.png'
+        image: '/images/kopi-susu.svg',
+        isActive: true
     },
     {
         id: 'kopi-gula-aren',
@@ -28,7 +30,8 @@ export const menuItems: MenuItem[] = [
         price: 13000,
         description: 'Kopi nikmat dengan sentuhan manis alami dari gula aren murni',
         benefits: 'Sumber energi alami, lebih sehat dari gula biasa',
-        image: '/images/Kopi Susu Aren.png'
+        image: '/images/Kopi Susu Aren.svg',
+        isActive: true
     },
     {
         id: 'kopi-butterscotch',
@@ -37,7 +40,8 @@ export const menuItems: MenuItem[] = [
         price: 13000,
         description: 'Kopi dengan rasa butterscotch yang manis dan creamy',
         benefits: 'Mood booster, mengurangi stress',
-        image: '/images/Kopi Butterscotch.png'
+        image: '/images/Kopi Butterscotch.svg',
+        isActive: true
     },
     {
         id: 'kopi-hazelnut',
@@ -46,7 +50,8 @@ export const menuItems: MenuItem[] = [
         price: 13000,
         description: 'Aroma hazelnut yang khas berpadu dengan kopi berkualitas',
         benefits: 'Meningkatkan fokus dan produktivitas',
-        image: '/images/Kopi Hazelnut.png'
+        image: '/images/Kopi Hazelnut.svg',
+        isActive: true
     },
     {
         id: 'kopi-caramel',
@@ -55,7 +60,8 @@ export const menuItems: MenuItem[] = [
         price: 13000,
         description: 'Kombinasi lezat kopi dengan sirup caramel yang manis',
         benefits: 'Energi boost, cocok untuk memulai hari',
-        image: '/images/Kopi Caramel.png'
+        image: '/images/Kopi Caramel.svg',
+        isActive: true
     },
     {
         id: 'moccacino',
@@ -63,8 +69,9 @@ export const menuItems: MenuItem[] = [
         category: 'coffee',
         price: 13000,
         description: 'Perpaduan kopi, coklat, dan susu untuk pengalaman rasa yang indulgent',
-        benefits: 'Meningkatkan mood dan energi',
-        image: '/images/Moccacino.png'
+        benefits: 'Meningkatkan mood and energi',
+        image: '/images/Moccacino.svg',
+        isActive: true
     },
     {
         id: 'es-kopi-hitam',
@@ -74,7 +81,8 @@ export const menuItems: MenuItem[] = [
         price: 8000,
         description: 'Kopi hitam murni tanpa gula, untuk pecinta kopi sejati',
         benefits: 'Metabolisme booster, rendah kalori',
-        image: '/images/Kopi Hitam Americano.png'
+        image: '/images/Kopi Hitam.svg',
+        isActive: true
     },
     {
         id: 'kopi-lemon',
@@ -84,7 +92,8 @@ export const menuItems: MenuItem[] = [
         price: 13000,
         description: 'Kombinasi fresh kopi dengan kesegaran lemon',
         benefits: 'Detox alami, meningkatkan metabolisme',
-        image: '/images/Kopi Lemon.png'
+        image: '/images/Kopi Lemon.svg',
+        isActive: true
     },
     {
         id: 'roca-peach-americano',
@@ -94,7 +103,8 @@ export const menuItems: MenuItem[] = [
         price: 20000,
         description: 'Americano dengan sentuhan peach yang menyegarkan',
         benefits: 'Kombinasi unik, rendah kalori',
-        image: '/images/Roca Peach Americano.png'
+        image: '/images/Roca Peach Americano.svg',
+        isActive: true
     },
     {
         id: 'bottle-coffee',
@@ -106,7 +116,8 @@ export const menuItems: MenuItem[] = [
         ],
         description: 'Kopi botol kemasan 1 Liter untuk stok di rumah, praktis dan tetap nikmat. Satu ukuran (1L) dengan pilihan rasa favorit.',
         benefits: 'Lebih hemat, stok melimpah, rasa tetap konsisten',
-        image: '/images/Bottle Coffee.svg'
+        image: '/images/Bottle Coffeee.svg',
+        isActive: true
     },
 
     // Non-Coffee Series
@@ -115,18 +126,20 @@ export const menuItems: MenuItem[] = [
         name: 'Oreo',
         category: 'non-coffee',
         price: 8000,
-        description: 'Minuman creamy dengan remahan oreo yang lezat',
+        description: 'Minuman creamy with remahan oreo yang lezat',
         benefits: 'Mood booster, cocok untuk segala usia',
-        image: '/images/Oreo.png'
+        image: '/images/Oreo.svg',
+        isActive: true
     },
     {
         id: 'coklat',
         name: 'Coklat',
         category: 'non-coffee',
         price: 10000,
-        description: 'Minuman coklat premium yang creamy dan nikmat',
+        description: 'Minuman coklat premium yang creamy and nikmat',
         benefits: 'Kaya antioksidan, meningkatkan mood',
-        image: '/images/Coklat.png'
+        image: '/images/Coklat.svg',
+        isActive: true
     },
     {
         id: 'taro-cheese',
@@ -134,44 +147,49 @@ export const menuItems: MenuItem[] = [
         category: 'non-coffee',
         price: 12000,
         description: 'Minuman taro dengan topping cheese foam yang lembut',
-        benefits: 'Sumber energi, kaya serat dan kalsium',
-        image: '/images/Taro Cheese.png'
+        benefits: 'Sumber energi, kaya serat and kalsium',
+        image: '/images/Taro Cheese.svg',
+        isActive: true
     },
     {
         id: 'matcha',
         name: 'Matcha Cheese',
         category: 'non-coffee',
         price: 17000,
-        description: 'Matcha premium Jepang berkualitas tinggi dengan perpaduan topping cream cheese yang gurih dan lumer',
-        benefits: 'Kaya antioksidan, meningkatkan fokus, dan memberikan energi dari keju berkualitas',
-        image: '/images/Marcha.png'
+        description: 'Matcha premium Jepang berkualitas tinggi dengan perpaduan topping cream cheese yang gurih and lumer',
+        benefits: 'Kaya antioksidan, meningkatkan fokus, and memberikan energi dari keju berkualitas',
+        image: '/images/Matcha Cheese.svg',
+        isActive: true
     },
     {
         id: 'susu-blueberry',
         name: 'Blueberry Milk',
         category: 'non-coffee',
         price: 13000,
-        description: 'Susu segar dengan topping blueberry asli',
-        benefits: 'Kaya vitamin C dan antioksidan',
-        image: '/images/Blueberry Milk.png'
+        description: 'Susu segar with topping blueberry asli',
+        benefits: 'Kaya vitamin C and antioksidan',
+        image: '/images/Blueberry Milk.svg',
+        isActive: true
     },
     {
         id: 'susu-strawberry',
         name: 'Strawberry Milk',
         category: 'non-coffee',
         price: 13000,
-        description: 'Susu segar dengan topping strawberry segar',
+        description: 'Susu segar with topping strawberry segar',
         benefits: 'Tinggi vitamin C, baik untuk imunitas',
-        image: '/images/Strawberry Milk.png'
+        image: '/images/Strawberry Milk.svg',
+        isActive: true
     },
     {
         id: 'orange-mojito',
         name: 'Orange Mojito',
         category: 'fruity',
         price: 10000,
-        description: 'Minuman segar dengan perpaduan jeruk dan mint',
+        description: 'Minuman segar with perpaduan jeruk and mint',
         benefits: 'Vitamin C tinggi, sangat menyegarkan',
-        image: '/images/Orange Mojito.png'
+        image: '/images/Orange Mojito.svg',
+        isActive: true
     },
 
     // Tea Series
@@ -183,18 +201,20 @@ export const menuItems: MenuItem[] = [
             { size: 'Medium', price: 2500 },
             { size: 'Large', price: 4000 }
         ],
-        description: 'Es teh manis yang segar dan menyegarkan, tersedia dalam pilihan ukuran',
+        description: 'Es teh manis yang segar and menyegarkan, tersedia dalam pilihan ukuran',
         benefits: 'Menghilangkan dahaga, hidrasi optimal',
-        image: '/images/Es Teh Medium & Large.png'
+        image: '/images/Es Teh Medium & Large.svg',
+        isActive: true
     },
     {
         id: 'lemontea',
         name: 'Lemon Tea',
         category: 'tea',
         price: 6000,
-        description: 'Teh dengan kesegaran lemon yang menyegarkan',
+        description: 'Teh with kesegaran lemon yang menyegarkan',
         benefits: 'Detox alami, kaya vitamin C',
-        image: '/images/Lemon Tea.png'
+        image: '/images/Lemon Tea.svg',
+        isActive: true
     },
     {
         id: 'thaitea',
@@ -204,18 +224,20 @@ export const menuItems: MenuItem[] = [
             { size: 'Medium', price: 6000 },
             { size: 'Large', price: 10000 }
         ],
-        description: 'Thai tea autentik dengan rasa manis creamy',
+        description: 'Thai tea autentik with rasa manis creamy',
         benefits: 'Energi boost, kaya antioksidan',
-        image: '/images/Thaitea Medium & Large.png'
+        image: '/images/Thaitea Medium & Large.svg',
+        isActive: true
     },
     {
         id: 'thaitea-cheese',
         name: 'Thaitea Cheese',
         category: 'non-coffee',
         price: 10000,
-        description: 'Thai tea dengan topping cheese foam yang creamy',
+        description: 'Thai tea with topping cheese foam yang creamy',
         benefits: 'Fusion unik, kaya kalsium',
-        image: '/images/Thaitea Cheese.png'
+        image: '/images/Thaitea Cheese.svg',
+        isActive: true
     },
     {
         id: 'greentea',
@@ -225,18 +247,20 @@ export const menuItems: MenuItem[] = [
             { size: 'Medium', price: 7000 },
             { size: 'Large', price: 10000 }
         ],
-        description: 'Green tea premium yang segar dan sehat',
+        description: 'Green tea premium yang segar and sehat',
         benefits: 'Super antioksidan, metabolisme booster',
-        image: '/images/Greentea Medium & Large.png'
+        image: '/images/Greentea Medium & Large.svg',
+        isActive: true
     },
     {
         id: 'greentea-cheese',
         name: 'Greentea Cheese',
         category: 'non-coffee',
         price: 11000,
-        description: 'Green tea dengan topping cheese foam yang lembut',
-        benefits: 'Antioksidan dengan tambahan kalsium',
-        image: '/images/Greentea Cheese.png'
+        description: 'Green tea with topping cheese foam yang lembut',
+        benefits: 'Antioksidan with tambahan kalsium',
+        image: '/images/Greentea Cheese.svg',
+        isActive: true
     },
 
     // Fruity Series
@@ -245,18 +269,20 @@ export const menuItems: MenuItem[] = [
         name: 'Mango Yakult',
         category: 'fruity',
         price: 8000,
-        description: 'Perpaduan segar mangga manis dengan yakult probiotik',
+        description: 'Perpaduan segar mangga manis with yakult probiotik',
         benefits: 'Probiotik untuk pencernaan, kaya vitamin',
-        image: '/images/Mango Yakult.png'
+        image: '/images/Mango Yakult.svg',
+        isActive: true
     },
     {
         id: 'leci-yakult',
         name: 'Leci Yakult',
         category: 'fruity',
         price: 8000,
-        description: 'Rasa leci eksotis berpadu dengan yakult',
+        description: 'Rasa leci eksotis berpadu with yakult',
         benefits: 'Vitamin C, baik untuk imunitas',
-        image: '/images/Leci Yakult.png'
+        image: '/images/Leci Yakult.svg',
+        isActive: true
     },
 ]
 

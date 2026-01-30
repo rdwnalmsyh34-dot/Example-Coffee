@@ -10,6 +10,8 @@
     "clean": "rd /s /q .next && rd /s /q out"
   },
   "dependencies": {
+    "esc-pos-encoder": "^3.0.0",
+    "firebase": "^12.8.0",
     "lucide-react": "^0.562.0",
     "next": "15.2.4",
     "react": "18.3.1",

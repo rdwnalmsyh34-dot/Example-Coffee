@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function MenuImageSection() {
     return (
-        <section className="py-20 bg-kopi-cream/30" id="menu-lengkap">
+        <section className="py-20 bg-[#F5F5F5]" id="menu-lengkap">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12 animate-fadeInUp">
                     <span className="text-kopi-secondary font-semibold text-sm tracking-wider uppercase mb-2 block">
@@ -19,11 +19,12 @@ export default function MenuImageSection() {
                 <div className="max-w-5xl mx-auto bg-white p-4 md:p-8 rounded-3xl shadow-premium animate-slideUp">
                     <div className="relative w-full h-auto min-h-[600px] md:min-h-[800px] rounded-2xl overflow-hidden">
                         <Image
-                            src="/images/menu.png"
-                            alt="Daftar Menu Kopi Roca Lengkap"
+                            src="/images/toko.svg"
+                            alt="Daftar Menu Example Coffe Lengkap"
                             fill
                             className="object-contain"
                             priority
+                            unoptimized={true}
                         />
                     </div>
                     <div className="mt-6 text-center">
